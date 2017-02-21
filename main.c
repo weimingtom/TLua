@@ -12,22 +12,22 @@
 #include <unistd.h>
 
 #include "util.h"
-#include "capi_example.h"
-#include "test_extend_lua_by_c.h"
-#include "c_function_to_extend_lua.h"
-#include "c_module_to_extend_lua.h"
+//#include "capi_example.h"
+//#include "test_extend_lua_by_c.h"
+//#include "c_function_to_extend_lua.h"
+//#include "c_module_to_extend_lua.h"
 //C与Lua的 全局变量交互
-#include "c_global_Var_lua.h"
+//#include "c_global_Var_lua.h"
 //C中调用Lua函数
-#include "c_Call_lua.h"
+//#include "c_Call_lua.h"
 //Lua中调用C函数
-#include "lua_Call_c.h"
+//#include "lua_Call_c.h"
 //C语言中读取Lua中的 表结构 table
-#include "c_read_table_lua.h"
+//#include "c_read_table_lua.h"
 //C语言写入数据到Lua中的 表结构 table
-#include "c_write_table_lua.h"
+//#include "c_write_table_lua.h"
 //c模块自定义userdata 扩展到lua
-#include "c_userdate_lua.h"
+//#include "c_userdate_lua.h"
 
 //json包
 //#include "lua_cjson.h"
@@ -73,7 +73,7 @@ int main(int argc, const char * argv[]) {
 //    
 //    if ((luaL_loadfile(L,baseModule)))
 //        error(L,"cannot run config. file:%s\n",lua_tostring(L,-1));
-    char *fname = "/Users/administrator/Desktop/workSpaceC++/ReadingLua/LuaSrc/LuaSrc/script/helloworld.lua";
+    char *fname = "/Users/ttc/TTcG/TLua/script/helloworld.lua";
     
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);

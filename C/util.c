@@ -11,7 +11,8 @@
 
 #include "util.h"
 
-void error(lua_State *L, const char *fmt, ...)
+void
+error(lua_State *L, const char *fmt, ...)
 {
 	va_list argp;
 	va_start(argp,fmt);
@@ -23,14 +24,16 @@ void error(lua_State *L, const char *fmt, ...)
 	exit(EXIT_FAILURE);
 }
 
-void stack_dump(lua_State *L)
+void
+stack_dump(lua_State *L)
 {
 	int i;
 	int top = lua_gettop(L);
 	for(i = 1; i <= top; i ++)
 	{
 		int t = lua_type(L,i);
-		switch(t){
+		switch(t)
+        {
 			case LUA_TSTRING:
 			{
 				printf("'%s'",lua_tostring(L,i));
@@ -60,18 +63,21 @@ void stack_dump(lua_State *L)
 	printf("\n");
 }
 
-void load(lua_State *L, const char *file_name) {
+void
+load(lua_State *L, const char *file_name)
+{
 
 	if ((luaL_loadfile(L,file_name)))
 		error(L,"cannot run config. file:%s \n",lua_tostring(L,-1));
     
-    if (lua_pcall(L,0,0,0)){
+    if (lua_pcall(L,0,0,0))
         error(L,"cannot run config. file:%s\n",lua_tostring(L,-1));
-    }
 
 }
 
-void call_va(lua_State *L,const char *funcname,const char *sig, ...) {
+void
+call_va(lua_State *L,const char *funcname,const char *sig, ...)
+{
 
 	int narg,nres; /*arg number and result number*/
 	bool isbreak;
