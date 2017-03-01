@@ -426,7 +426,8 @@ LUA_API const char *lua_tolstring (lua_State *L, int idx, size_t *len) {
   if (!ttisstring(o)) {
     lua_lock(L);  /* `luaV_tostring' may create a new string */
     if (!luaV_tostring(L, o)) {  /* conversion failed? */
-      if (len != NULL) *len = 0;
+      if (len != NULL)
+          *len = 0;
       lua_unlock(L);
       return NULL;
     }
@@ -434,7 +435,8 @@ LUA_API const char *lua_tolstring (lua_State *L, int idx, size_t *len) {
     o = index2addr(L, idx);  /* previous call may reallocate the stack */
     lua_unlock(L);
   }
-  if (len != NULL) *len = tsvalue(o)->len;
+  if (len != NULL)
+      *len = tsvalue(o)->len;
   return svalue(o);
 }
 
@@ -1030,7 +1032,8 @@ LUA_API int lua_load (lua_State *L, lua_Reader reader, void *data,
   ZIO z;
   int status;
   lua_lock(L);
-  if (!chunkname) chunkname = "?";
+  if (!chunkname)
+      chunkname = "?";
   luaZ_init(L, &z, reader, data);
   status = luaD_protectedparser(L, &z, chunkname, mode);
   if (status == LUA_OK) {  /* no errors? */
