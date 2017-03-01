@@ -73,7 +73,7 @@ int main(int argc, const char * argv[]) {
 //    
 //    if ((luaL_loadfile(L,baseModule)))
 //        error(L,"cannot run config. file:%s\n",lua_tostring(L,-1));
-    char *fname = "/Users/ttc/TTcG/TLua/script/helloworld.lua";
+    char *fname = "/Users/ttc/TTc/TLua/script/helloworld.lua";
     
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);
