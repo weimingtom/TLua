@@ -1,5 +1,4 @@
---c_read_table_lua.lua
 
-BLUE = { r= 0, g= 0, b=1}
+BLUE = { r= 0, g= 0, b=17}
 background = BLUE
 

@@ -1,10 +1,16 @@
 #ifndef util_h
 #define util_h
+
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "lua.h"
 #include "lauxlib.h"
 #include "lualib.h"
 #include "util.h"
 #include "luaconf.h"
+
+
 
 void error(lua_State *L, const char *fmt, ...);
 

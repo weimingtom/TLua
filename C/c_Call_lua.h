@@ -8,8 +8,11 @@
 
 #ifndef __LuaSrc__c_Call_lua__
 #define __LuaSrc__c_Call_lua__
+
 #include "util.h"
-#include <stdio.h>
-void test_c_call_lua(char *filename);
+
+void test_c_call_lua(lua_State *L,const char *root);
+
 double c_func(lua_State *L, double x, double y);
+
 #endif /* defined(__LuaSrc__c_Call_lua__) */

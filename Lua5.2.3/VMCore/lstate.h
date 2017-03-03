@@ -157,7 +157,7 @@ typedef struct global_State {
   stringtable strt;  /* hash table for strings */
   TValue l_registry;   //registry表
   unsigned int seed;  /* randomized seed for hashes 随机种子散列 */
-  lu_byte currentwhite;
+  lu_byte currentwhite;/*来表示当前是那个标志位用来标识white */
   lu_byte gcstate;  /* state of garbage collector */
   lu_byte gckind;  /* kind of GC running */
   lu_byte gcrunning;  /* true if GC is running */

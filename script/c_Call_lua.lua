@@ -1,7 +1,5 @@
---
-
 
 function lua_func (x, y)
-    print("Parameters are: ", x, y)
-    return (x^2 * math.sin(y))/(1-x)
+    print("Parms are: ", x, y)
+    return (x^2 * y)
 end

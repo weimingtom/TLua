@@ -9,9 +9,9 @@
 #ifndef __LuaSrc__lua_Call_c__
 #define __LuaSrc__lua_Call_c__
 
-#include <stdio.h>
 #include "util.h"
 
-void test_lua_Call_c();
-int ttc_testlib(lua_State *L);
+
+void test_lua_Call_c(lua_State *L,const char *root);
+
 #endif /* defined(__LuaSrc__lua_Call_c__) */

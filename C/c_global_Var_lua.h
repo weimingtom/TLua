@@ -10,8 +10,8 @@
 #define __LuaSrc__c_global_Var_lua__
 
 #include <stdio.h>
-#include "lua.h"
-void get_global(lua_State *L);
-void set_global(lua_State *L);
-void test_global();
+#include "util.h"
+
+void test_global(lua_State *L,const char *root);
+
 #endif /* defined(__LuaSrc__c_global_Var_lua__) */

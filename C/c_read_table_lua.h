@@ -13,6 +13,6 @@
 #include "util.h"
 
 
-void test_c_read_table_lua();
+void test_c_read_table_lua(lua_State *L,const char *root);
 
 #endif /* defined(__LuaSrc__c_read_table_lua__) */

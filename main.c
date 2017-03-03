@@ -12,22 +12,23 @@
 #include <unistd.h>
 
 #include "util.h"
+#include "hello.h"
 //#include "capi_example.h"
 //#include "test_extend_lua_by_c.h"
 //#include "c_function_to_extend_lua.h"
 //#include "c_module_to_extend_lua.h"
 //C与Lua的 全局变量交互
-//#include "c_global_Var_lua.h"
+#include "c_global_Var_lua.h"
 //C中调用Lua函数
-//#include "c_Call_lua.h"
+#include "c_Call_lua.h"
 //Lua中调用C函数
-//#include "lua_Call_c.h"
+#include "lua_Call_c.h"
 //C语言中读取Lua中的 表结构 table
-//#include "c_read_table_lua.h"
+#include "c_read_table_lua.h"
 //C语言写入数据到Lua中的 表结构 table
-//#include "c_write_table_lua.h"
+#include "c_write_table_lua.h"
 //c模块自定义userdata 扩展到lua
-//#include "c_userdate_lua.h"
+#include "c_userdate_lua.h"
 
 //json包
 //#include "lua_cjson.h"
@@ -45,7 +46,13 @@
 //    return result\
 //";
 
-int main(int argc, const char * argv[]) {
+#define MAXPATH 1024
+
+
+
+int
+main(int argc, const char * argv[])
+{
 //    int tlcl =  (LUA_TFUNCTION | (0 << 4));
 //    int tlcf =  (LUA_TFUNCTION | (1 << 4));
 //    int tccl =	(LUA_TFUNCTION | (2 << 4));
@@ -64,27 +71,22 @@ int main(int argc, const char * argv[]) {
 
     //luaL_requiref(L, "json", lua_cjson_new, 0);
 
-    
-//    char *basePath = "/Users/administrator/Desktop/studySpace/ReadingLua/LuaSrc/LuaSrc/script/";
-//    size_t len = strlen(basePath);
-//    char  basePath[100] = "/Users/administrator/Desktop/studySpace/ReadingLua/LuaSrc/LuaSrc/script/";
-//    char *baseModule = basePath;
-//    strcat(baseModule,"base.lua");
-//    
-//    if ((luaL_loadfile(L,baseModule)))
-//        error(L,"cannot run config. file:%s\n",lua_tostring(L,-1));
-    char *fname = "/Users/ttc/TTc/TLua/script/helloworld.lua";
-    
+
+    const char *root = "/Users/ttc/TTcG/TLua/script/";
+
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);
-    load(L, fname);
+    
+    
+    test_hello(L,root);
+    
+    test_global(L,root);
+    test_c_call_lua(L,root);
+    test_lua_Call_c(L,root);
 
-    //test_global();
-//    test_c_call_lua(fname);
-    //test_lua_Call_c();
-    //test_c_read_table_lua();
-    //test_c_write_table_lua();
-    //test_c_userdate_lua();
+    test_c_read_table_lua(L,root);
+    test_c_write_table_lua(L,root);
+    test_c_userdate_lua(L,root);
     return 0;
     
 }

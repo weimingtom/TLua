@@ -7,10 +7,8 @@
 //
 
 #include "c_global_Var_lua.h"
-#include "lua.h"
-#include "lauxlib.h"
-#include "lualib.h"
-#include "util.h"
+
+
 void get_global(lua_State *L)
 {
     int global_var1,global_var2;
@@ -31,12 +29,22 @@ void set_global(lua_State *L)
 }
 
 
-void test_global(){
-    lua_State *L = luaL_newstate();
-    luaL_openlibs(L);
-    char *fname = "/Users/administrator/Desktop/studySpace/ReadingLua/LuaSrc/LuaSrc/script/c_global_Var_lua.lua";
-    load(L, fname);
+static void
+callLua(lua_State *L)
+{
     get_global(L);
     set_global(L);
     get_global(L);
+}
+
+void test_global(lua_State *L,const char *root)
+{
+    char path [128];
+    memset(path, '\0', sizeof(path));
+    strcat(path, root);
+    strcat(path, "c_global_Var_lua.lua");
+    printf("fname => %s \n",path);
+    load(L, path);
+
+    callLua(L);
 }
