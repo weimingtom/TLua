@@ -57,14 +57,16 @@ main(int argc, const char * argv[])
 //    int tlcf =  (LUA_TFUNCTION | (1 << 4));
 //    int tccl =	(LUA_TFUNCTION | (2 << 4));
 //    printf("tlcl===%d \n tlcf===%d \n tccl==%d \n",tlcl,tlcf,tccl);
-//    const char * config_file = NULL ;
-//    if (argc > 1) {
-//        config_file = argv[1];
-//        printf("config_file===%s \n",config_file);
-//    } else {
-//        fprintf(stderr, "Need a config file.\n");
-//        return 1;
-//    }
+    const char * config_file = NULL ;
+    if (argc > 1)
+    {
+        config_file = argv[1];
+    }
+    else
+    {
+        fprintf(stderr, "Need a config file.\n");
+        return 1;
+    }
    
 //    int err = luaL_loadstring(L, load_config);
 //    assert(err == LUA_OK);
@@ -72,7 +74,7 @@ main(int argc, const char * argv[])
     //luaL_requiref(L, "json", lua_cjson_new, 0);
 
 
-    const char *root = "/Users/ttc/TTcG/TLua/script/";
+    const char *root = config_file;
 
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);

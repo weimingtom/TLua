@@ -174,7 +174,7 @@
 		79C89D131E5BFFED00C98513 /* c_write_table_lua.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = c_write_table_lua.lua; sourceTree = "<group>"; };
 		79C89D141E5BFFED00C98513 /* calc_test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calc_test.lua; sourceTree = "<group>"; };
 		79C89D151E5BFFED00C98513 /* class.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = class.lua; sourceTree = "<group>"; };
-		79C89D161E5BFFED00C98513 /* helloworld.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helloworld.lua; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.lua; };
+		79C89D161E5BFFED00C98513 /* helloworld.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helloworld.lua; sourceTree = "<group>"; };
 		79C89D171E5BFFED00C98513 /* lua_Call_c.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lua_Call_c.lua; sourceTree = "<group>"; };
 		79C89D181E5BFFED00C98513 /* luac.out */ = {isa = PBXFileReference; lastKnownFileType = file; path = luac.out; sourceTree = "<group>"; };
 		79C89D191E5BFFED00C98513 /* lunar_test_script.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lunar_test_script.lua; sourceTree = "<group>"; };

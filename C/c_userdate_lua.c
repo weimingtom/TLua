@@ -17,7 +17,8 @@ typedef struct NumArray
 
 /* 新建array */
 static int
-newarray (lua_State *L){
+newarray (lua_State *L)
+{
     int n = luaL_checkint(L, -1);
     size_t nbytes = sizeof(NumArray) + n*sizeof(double);
     NumArray *a = (NumArray *)lua_newuserdata(L, nbytes); //新建一个大小为nbytes的userdata并压入堆栈。
