@@ -81,39 +81,3 @@ test_lua_Call_c(lua_State *L,const char *root)
     load(L, path);
 }
 
-
-
-//int
-//ttc_testlib(lua_State *L) {
-//    luaL_Reg l[] = {
-//        {"ttsin",t_sin},
-//        {NULL,NULL},
-//    };
-//    luaL_newlib(L,l);
-//    return 1;
-//}
-
-
-
-/*
- 将函数写入Lua全局命令空间的代码很简单，和写入全局变量的代码一样，都是先将C函数压入堆栈，然后再将虚拟堆栈中的函数指针写入Lua全局命名空间并将其命名为”mysin”。之后在Lua中就可以使用”ret = mysin(30)”这样的形式调用我们的C函数了。
- */
-//static void regist_func(lua_State *l) /* 这个函数将C函数写入Lua的命名空间中。 */
-//{
-//    lua_pushcfunction(l, l_sin);
-//    lua_setglobal(l, "mysin");
-//}
-
-
-//static int
-//ejoy2d_framework(lua_State *L){
-//    luaL_Reg l[] = {
-//        {"mysin",l_sin},
-//        {NULL,NULL},
-//    };
-//    luaL_newlibtable(L, l);
-//    lua_pushvalue(L, -1);
-//    luaL_setfuncs(L, l, 1);
-//    return 1;
-//}
-
