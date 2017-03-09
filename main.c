@@ -10,6 +10,7 @@
 #include <string.h>
 #include <assert.h>
 #include <unistd.h>
+#include "lobject.h"
 
 #include "util.h"
 #include "hello.h"
@@ -73,7 +74,6 @@ main(int argc, const char * argv[])
 
     //luaL_requiref(L, "json", lua_cjson_new, 0);
 
-
     const char *root = config_file;
 
     lua_State *L = luaL_newstate();
@@ -82,13 +82,13 @@ main(int argc, const char * argv[])
     
     test_hello(L,root);
     
-    test_global(L,root);
-    test_c_call_lua(L,root);
-    test_lua_Call_c(L,root);
-
-    test_c_read_table_lua(L,root);
-    test_c_write_table_lua(L,root);
-    test_c_userdate_lua(L,root);
+//    test_global(L,root);
+//    test_c_call_lua(L,root);
+//    test_lua_Call_c(L,root);
+//
+//    test_c_read_table_lua(L,root);
+//    test_c_write_table_lua(L,root);
+//    test_c_userdate_lua(L,root);
     return 0;
     
 }

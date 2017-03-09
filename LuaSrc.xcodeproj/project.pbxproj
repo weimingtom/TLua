@@ -206,13 +206,13 @@
 		793E450A1E70ED0400114D4C /* Lua5.2.3-O */ = {
 			isa = PBXGroup;
 			children = (
+				793E45431E70ED0400114D4C /* VMCore */,
 				793E450B1E70ED0400114D4C /* Compiler */,
 				793E45151E70ED0400114D4C /* Header */,
 				793E451B1E70ED0400114D4C /* Lua52Opcode */,
 				793E45341E70ED0400114D4C /* Makefile */,
 				793E45351E70ED0400114D4C /* Std */,
 				793E45401E70ED0400114D4C /* Tools */,
-				793E45431E70ED0400114D4C /* VMCore */,
 			);
 			path = "Lua5.2.3-O";
 			sourceTree = "<group>";
