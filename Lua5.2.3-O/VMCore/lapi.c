@@ -4,10 +4,6 @@
 ** See Copyright Notice in lua.h
 */
 
-/*
-   C  语言接口
- */
-
 
 #include <stdarg.h>
 #include <string.h>
@@ -55,29 +51,7 @@ const char lua_ident[] =
 #define api_checkstackindex(L, i, o)  \
 	api_check(L, isstackindex(i, o), "index not in the stack")
 
-/* 将栈中 idx 位置处元素转为表类型。这是一个内部调用方法,仅在 lapi 域内有效.
- 
-   这个函数中集成了所有不论是访问栈上元素的索引,
-   还是前面这几种特殊变量(环境变量)的索引,都转换为对应的地址
- 
-   这段代码的逻辑,主要是根据传入的idx的几种情况,分别返回不同的值:
- 
- 1.如果idx>0,那么以idx值为索引,返回基于Lua_State的base指针的值,也就是相对于栈底向上的偏移值;
- 2.如果idx>LUA_REGISTRYINDEX,则以idx值为索引,返回基于Lua_State的top指针的值,也就是相对于栈顶向下的偏移值;
- 3.如果是LUA_REGISTRYINDEX,那么返回registry表;
- 4.如果是LUA_ENVIRONINDEX,返回当前函数的env表; (5.2废弃)
- 5.如果是LUA_GLOBALSINDEX,返回Global表;       (5.2废弃)
- 6.如果以上都不符合,那么将根据情况返回当前函数的UpValue数组中的值.
 
- */
-/*
-    lua_State的base指针,简而言之一句话,lua_State的base指针,永远跟着当前所在函数的CallInfo指针的base指针走.
- 
-    base指针是相当重要的一个数据,原因在于它的指向所在是当前运行环境,
-    因为无论是取得当前数据的函数index2adr:
-    还是执行Lua虚拟机OpCode的函数luaV_execute:
-    都是基于lua_State的base指针的位置来读取数据的.
- */
 static TValue *index2addr (lua_State *L, int idx) {
   CallInfo *ci = L->ci;
   if (idx > 0) {
@@ -86,13 +60,13 @@ static TValue *index2addr (lua_State *L, int idx) {
     if (o >= L->top) return NONVALIDVALUE;
     else return o;
   }
-  else if (!ispseudo(idx)) {  /* negative index */  //负索引
+  else if (!ispseudo(idx)) {  /* negative index */
     api_check(L, idx != 0 && -idx <= L->top - (ci->func + 1), "invalid index");
     return L->top + idx;
   }
-  else if (idx == LUA_REGISTRYINDEX) //3
+  else if (idx == LUA_REGISTRYINDEX)
     return &G(L)->l_registry;
-  else {  /* upvalues */               //6
+  else {  /* upvalues */
     idx = LUA_REGISTRYINDEX - idx;
     api_check(L, idx <= MAXUPVAL + 1, "upvalue index too large");
     if (ttislcf(ci->func))  /* light C function? */
@@ -149,14 +123,7 @@ LUA_API void lua_xmove (lua_State *from, lua_State *to, int n) {
   lua_unlock(to);
 }
 
-/**
- *
- *
- *  @param L
- *  @param panicf
- *
- *  @return 
- */
+
 LUA_API lua_CFunction lua_atpanic (lua_State *L, lua_CFunction panicf) {
   lua_CFunction old;
   lua_lock(L);
@@ -166,9 +133,7 @@ LUA_API lua_CFunction lua_atpanic (lua_State *L, lua_CFunction panicf) {
   return old;
 }
 
-/**
- *  这里把一个全局变量地址赋给了version域,这样可以起到一个巧妙的作用:用户可以在运行时获得传入参数L中的 version地址,与自身链入的lua VM 实现代码中的这个变量,知道创建这个 L 的代码是否和自身的代码版本是否一致。这是比版本号比较更强的检查.
- */
+
 LUA_API const lua_Number *lua_version (lua_State *L) {
   static const lua_Number version = LUA_VERSION_NUM;
   if (L == NULL) return &version;
@@ -788,23 +753,14 @@ LUA_API void lua_settable (lua_State *L, int idx) {
   L->top -= 2;  /* pop index and value */
   lua_unlock(L);
 }
-/*
- 做一个等价于 t[k] = v 的操作, 这里 t 是给出的有效索引 index 处的值, 而 v 是栈顶的那个值。
- 这个函数将把这个值弹出堆栈。 跟在 Lua 中一样,这个函数可能触发一个 "newindex" 事件的元方 法。
- |     Key 串       |
- |------------------|
- |  value 串        |
- |------------------|
- |    ...           |
- |------------------|
- |  table(index位置) |
- */
+
+
 LUA_API void lua_setfield (lua_State *L, int idx, const char *k) {
   StkId t;
   lua_lock(L);
   api_checknelems(L, 1);
-  t = index2addr(L, idx);   //将栈索引转化为栈指针
-  setsvalue2s(L, L->top++, luaS_new(L, k)); //将key串放置到栈顶，原先的栈顶值value自然在index-=2处
+  t = index2addr(L, idx);
+  setsvalue2s(L, L->top++, luaS_new(L, k));
   luaV_settable(L, t, L->top - 1, L->top - 2);
   L->top -= 2;  /* pop value and key */
   lua_unlock(L);
@@ -920,9 +876,7 @@ LUA_API void lua_setuservalue (lua_State *L, int idx) {
      api_check(L, (nr) == LUA_MULTRET || (L->ci->top - L->top >= (nr) - (na)), \
 	"results from function overflow current stack size")
 
-/**
- *  获得最近一次边界调用时传入的 ctx
- */
+
 LUA_API int lua_getctx (lua_State *L, int *ctx) {
   if (L->ci->callstatus & CIST_YIELDED) {
     if (ctx) *ctx = L->ci->u.c.ctx;
@@ -931,9 +885,7 @@ LUA_API int lua_getctx (lua_State *L, int *ctx) {
   else return LUA_OK;
 }
 
-/**    lua_callk 只是对 luaD_call 的简单封装:在调用之前,根据需要把延续点 k 以及 ctx 设置到当前的 CallInfo 结构中。
- *   (C)lua resume -> Lua function -> C function -> (C) lua call -> Lua function -> coroutine.yield -> (C)lua yield
- */
+
 LUA_API void lua_callk (lua_State *L, int nargs, int nresults, int ctx,
                         lua_CFunction k) {
   StkId func;
@@ -971,11 +923,8 @@ static void f_call (lua_State *L, void *ud) {
   luaD_call(L, c->func, c->nresults, 0);
 }
 
-/**
- *     将产生的opcode放入虚拟机执行
- *  这里的nargs是由函数参数传入的,luaL_dofile中调用lua_pcall时这里传入的参数是
- *  0,换句话说,这里得到的函数对象指针就是在f_parser函数中最后放入Lua栈的指针
- */
+
+
 LUA_API int lua_pcallk (lua_State *L, int nargs, int nresults, int errfunc,
                         int ctx, lua_CFunction k) {
   struct CallS c;
@@ -994,19 +943,12 @@ LUA_API int lua_pcallk (lua_State *L, int nargs, int nresults, int errfunc,
     api_checkstackindex(L, errfunc, o);
     func = savestack(L, o);
   }
-    /* 
-       首先获取需要调用的函数指针,这里的nargs是由函数参数传入的,
-       luaL_dofile中调用lua_pcall时这里传入的参数是0,换句话说,
-       这里得到的函数对象指针就是在f_parser函数中最后放入Lua栈的指针.
-        继续往下执行,走到luaD_call函数
-     */
   c.func = L->top - (nargs+1);  /* function to be called */
-  /*如果不需要延续点的支持或是处于不能被挂起的状态,那么,简单的调用 luaD_pcall 就可以了*/
   if (k == NULL || L->nny > 0) {  /* no continuation or no yieldable? */
     c.nresults = nresults;  /* do a 'conventional' protected call */
     status = luaD_pcall(L, f_call, &c, savestack(L, c.func), func);
   }
-  else {  /* prepare continuation (call is already protected by 'resume')否则不能设置保护点,而改在调用前设置好延续点以及 ctx ,并将线程状态标记为 CIST_YPCALL */
+  else {  /* prepare continuation (call is already protected by 'resume') */
     CallInfo *ci = L->ci;
     ci->u.c.k = k;  /* save continuation */
     ci->u.c.ctx = ctx;  /* save context */
@@ -1027,9 +969,7 @@ LUA_API int lua_pcallk (lua_State *L, int nargs, int nresults, int errfunc,
   return status;
 }
 
-/**
- *   加载Lua脚本
- */
+
 LUA_API int lua_load (lua_State *L, lua_Reader reader, void *data,
                       const char *chunkname, const char *mode) {
   ZIO z;
@@ -1075,7 +1015,7 @@ LUA_API int lua_status (lua_State *L) {
 
 
 /*
-** Garbage-collection function GC垃圾回收
+** Garbage-collection function
 */
 
 LUA_API int lua_gc (lua_State *L, int what, int data) {
@@ -1158,11 +1098,11 @@ LUA_API int lua_gc (lua_State *L, int what, int data) {
 
 
 /*
-** miscellaneous functions 辅助功能函数
+** miscellaneous functions
 */
 
-/*Lua内部运行期runerror*/
- LUA_API int lua_error (lua_State *L) {
+
+LUA_API int lua_error (lua_State *L) {
   lua_lock(L);
   api_checknelems(L, 1);
   luaG_errormsg(L);

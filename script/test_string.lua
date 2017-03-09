@@ -1,12 +1,12 @@
 
 
 
-str = "TTC"
+str = "TTC1"
 len = string.len(str)
 
 print(len)
 
---[[
+
 
 function add(a,b)
 return a+b
@@ -16,18 +16,22 @@ local c = add(1,2)
 
 print(c)
 
---]]
 
---[[
+
+
 function MakeCounter()
+print("MakeCounter=>")
 local t = 0
-return function()
-t = t+1
-return t
-end
+    return function()
+        print("tttt")
+        t = t+1
+    return t
+    end
 end
 
+MakeCounter()
 local a = MakeCounter
-print()
+a()
+print("---------")
+print(a)
 
---]]
