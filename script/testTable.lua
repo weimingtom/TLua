@@ -1,6 +1,6 @@
 function print_ipairs(t)
     for k, v in ipairs(t) do
-        print(k)
+        print(k,v)
     end
 end
 

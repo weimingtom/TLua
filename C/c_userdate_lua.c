@@ -19,7 +19,8 @@ typedef struct NumArray
 static int
 newarray (lua_State *L)
 {
-    int n = luaL_checkint(L, -1);
+    int n = luaL_checkinteger(L, -1);
+//    int n = luaL_checkinter(L, -1);
     size_t nbytes = sizeof(NumArray) + n*sizeof(double);
     NumArray *a = (NumArray *)lua_newuserdata(L, nbytes); //新建一个大小为nbytes的userdata并压入堆栈。
     a->size = n; //初始化NumArray的大小
@@ -31,7 +32,8 @@ static int
 setarray(lua_State *L)
 {
     NumArray *a = (NumArray *)lua_touserdata(L, -3); //将堆栈中的userdata读取出来
-    int index = luaL_checkint(L, -2);       //读取索引
+    int index = luaL_checkinteger(L, -2);
+    //    int index = luaL_checkint(L, -2);       //读取索引
     double value = luaL_checknumber(L, -1); //读取数值
     luaL_argcheck(L, NULL != a, 1, "'array' expected"); //检查参数的返回，如果第二个表达式为假，则抛出最后一个参数指定的错误信息
     luaL_argcheck(L, index >= 0 && index <= a->size, 1, "index out of range");
@@ -44,7 +46,8 @@ static int
 getarray(lua_State *L)
 {
     NumArray *a = (NumArray *)lua_touserdata(L, -2); //前面的步骤和setarray中的相同
-    int index = luaL_checkint(L, -1);
+    int index = luaL_checkinteger(L, -1);
+//    int index = luaL_checkint(L, -1);
     
     luaL_argcheck(L, NULL != a, 1, "'array' expected");
     luaL_argcheck(L, index >= 1 && index <= a->size, 1, "index out of range");
