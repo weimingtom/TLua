@@ -169,6 +169,7 @@
 		79C89D231E5BFFED00C98513 /* ttc.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ttc.lua; sourceTree = "<group>"; };
 		79C89D3E1E5C00A900C98513 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
 		79C89D3F1E5C00A900C98513 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		79E2CC421E7465D40041B48F /* OpCode */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OpCode; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +186,7 @@
 		791539E51E7241B100088015 /* Lua5.3.0 */ = {
 			isa = PBXGroup;
 			children = (
+				79E2CC421E7465D40041B48F /* OpCode */,
 				791539E61E7241B100088015 /* Compiler */,
 				791539F01E7241B100088015 /* Header */,
 				791539F71E7241B100088015 /* Makefile */,

@@ -82,13 +82,13 @@ main(int argc, const char * argv[])
     
     test_hello(L,root);
     
-    test_global(L,root);
-    test_c_call_lua(L,root);
-    test_lua_Call_c(L,root);
-
-    test_c_read_table_lua(L,root);
-    test_c_write_table_lua(L,root);
-    test_c_userdate_lua(L,root);
+//    test_global(L,root);
+//    test_c_call_lua(L,root);
+//    test_lua_Call_c(L,root);
+//
+//    test_c_read_table_lua(L,root);
+//    test_c_write_table_lua(L,root);
+//    test_c_userdate_lua(L,root);
     return 0;
     
 }
