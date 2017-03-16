@@ -427,14 +427,14 @@ static void PrintDebug(const Proto* f)
     printf("locals (%d) for %p:\n",n,VOID(f));
     for (i=0; i<n; i++)
     {
-        printf("\t%d\t%s(name)\t%d(startpc)\t%d(endpc)\n",
+        printf("\t%d \t%s(name) \t %d(startpc) \t%d(endpc)\n",
                i,getstr(f->locvars[i].varname),f->locvars[i].startpc+1,f->locvars[i].endpc+1);
     }
     n=f->sizeupvalues;
     printf("upvalues (%d) for %p:\n",n,VOID(f));
     for (i=0; i<n; i++)
     {
-        printf("\t%d\t%s(name)\t%d(instack)\t%d(idx)\n",
+        printf("\t%d \t %s(name) \t %d(instack) \t %d(idx)\n",
                i,UPVALNAME(i),f->upvalues[i].instack,f->upvalues[i].idx);
     }
 }
