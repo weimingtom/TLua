@@ -50,9 +50,9 @@ static void cannot(const char* what)
 static void usage(const char* message)
 {
     if (*message=='-')
-    fprintf(stderr,"%s: unrecognized option '%s'\n",progname,message);
+        fprintf(stderr,"%s: unrecognized option '%s'\n",progname,message);
     else
-    fprintf(stderr,"%s: %s\n",progname,message);
+        fprintf(stderr,"%s: %s\n",progname,message);
     fprintf(stderr,
             "usage: %s [options] [filenames]\n"
             "Available options are:\n"
@@ -77,7 +77,7 @@ static int doargs(int argc, char* argv[])
     for (i=1; i<argc; i++)
     {
         if (*argv[i]!='-')			/* end of options; keep it */
-        break;
+            break;
         else if (IS("--"))			/* end of options; skip it */
         {
             ++i;
@@ -85,24 +85,24 @@ static int doargs(int argc, char* argv[])
             break;
         }
         else if (IS("-"))			/* end of options; use stdin */
-        break;
+            break;
         else if (IS("-l"))			/* list */
-        ++listing;
+            ++listing;
         else if (IS("-o"))			/* output file */
         {
             output=argv[++i];
             if (output==NULL || *output==0 || (*output=='-' && output[1]!=0))
-            usage("'-o' needs argument");
+                usage("'-o' needs argument");
             if (IS("-")) output=NULL;
         }
         else if (IS("-p"))			/* parse only */
-        dumping=0;
+            dumping=0;
         else if (IS("-s"))			/* strip debug information */
-        stripping=1;
+            stripping=1;
         else if (IS("-v"))			/* show version */
-        ++version;
+            ++version;
         else					/* unknown option */
-        usage(argv[i]);
+            usage(argv[i]);
     }
     if (i==argc && (listing || !dumping))
     {
@@ -139,7 +139,7 @@ static const char* reader(lua_State *L, void *ud, size_t *size)
 static const Proto* combine(lua_State* L, int n)
 {
     if (n==1)
-    return toproto(L,-1);
+        return toproto(L,-1);
     else
     {
         Proto* f;
@@ -244,7 +244,7 @@ static void PrintString(const TString* ts)
             case '\v': printf("\\v"); break;
             default:	if (isprint(c))
                 printf("%c",c);
-                else
+            else
                 printf("\\%03d",c);
         }
     }
@@ -306,20 +306,20 @@ static void PrintCode(const Proto* f)
         switch (getOpMode(o))
         {
             case iABC:
-                printf("(iABC) %d",a);
-                if (getBMode(o)!=OpArgN) printf(" %d",ISK(b) ? (MYK(INDEXK(b))) : b);
-                if (getCMode(o)!=OpArgN) printf(" %d",ISK(c) ? (MYK(INDEXK(c))) : c);
+                printf("(iABC) [A]%d [ISK]%d",a ,ISK(b));
+                if (getBMode(o)!=OpArgN) printf("[B]%d",ISK(b) ? (MYK(INDEXK(b))) : b);
+                if (getCMode(o)!=OpArgN) printf("[C]%d",ISK(c) ? (MYK(INDEXK(c))) : c);
                 break;
             case iABx:
-                printf("(iABx) %d",a);
-                if (getBMode(o)==OpArgK) printf(" %d",MYK(bx));
-                if (getBMode(o)==OpArgU) printf(" %d",bx);
+                printf("(iABx) [A]%d",a);
+                if (getBMode(o)==OpArgK) printf(" [K]%d",MYK(bx));
+                if (getBMode(o)==OpArgU) printf(" [U]%d",bx);
                 break;
             case iAsBx:
-                printf("(iAsBx) %d %d",a,sbx);
+                printf("(iAsBx) [A]%d [sBx]%d",a,sbx);
                 break;
             case iAx:
-                printf("(iAx) %d",MYK(ax));
+                printf("(iAx) [Ax]%d",MYK(ax));
                 break;
         }
         switch (o)
@@ -360,12 +360,12 @@ static void PrintCode(const Proto* f)
             case OP_LT:
             case OP_LE:
                 if (ISK(b) || ISK(c))
-            {
-                printf("\t; ");
-                if (ISK(b)) PrintConstant(f,INDEXK(b)); else printf("-");
-                printf(" ");
-                if (ISK(c)) PrintConstant(f,INDEXK(c)); else printf("-");
-            }
+                {
+                    printf("\t; ");
+                    if (ISK(b)) PrintConstant(f,INDEXK(b)); else printf("-");
+                    printf(" ");
+                    if (ISK(c)) PrintConstant(f,INDEXK(c)); else printf("-");
+                }
                 break;
             case OP_JMP:
             case OP_FORLOOP:
@@ -396,11 +396,11 @@ static void PrintHeader(const Proto* f)
 {
     const char* s=f->source ? getstr(f->source) : "=?";
     if (*s=='@' || *s=='=')
-    s++;
+        s++;
     else if (*s==LUA_SIGNATURE[0])
-    s="(bstring)";
+        s="(bstring)";
     else
-    s="(string)";
+        s="(string)";
     printf("\n%s <%s:%d,%d> (%d instruction%s at %p)\n",
            (f->linedefined==0)?"main":"function",s,
            f->linedefined,f->lastlinedefined,

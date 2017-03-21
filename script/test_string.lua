@@ -1,37 +1,33 @@
-
-
-
-str = "TTC1"
-len = string.len(str)
-
-print(len)
-
-
-
-function add(a,b)
-return a+b
-end
-
-local c = add(1,2)
-
-print(c)
-
-
-
-
 function MakeCounter()
-print("MakeCounter=>")
 local t = 0
     return function()
-        print("tttt")
         t = t+1
     return t
     end
 end
 
-MakeCounter()
-local a = MakeCounter
-a()
-print("---------")
-print(a)
+foo = MakeCounter()
+foo1 = MakeCounter()
+print(foo)
+print(foo())
+print(foo())
+print(foo1)
+print(foo1())
+print(foo1())
+print("------------------------")
 
+function printHello(a,b)  --a,b为参数 
+    print(a,b); 
+    print("Hello") 
+end 
+
+printHello(10,20)
+
+
+print("-------------------------")
+
+printTTc = function (a,b) 
+    return a+b end
+
+local result = printTTc(20,30)
+print(result)
