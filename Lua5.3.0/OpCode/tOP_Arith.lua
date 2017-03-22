@@ -1,0 +1,13 @@
+local t = 1
+t = t + 1
+t = t - 1
+t = t * 1
+t = t / 1
+t = t % 1
+t = t ^ 1
+t = t // 1
+t = t & 1
+t = t | 1
+t = t ~ 1
+t = t << 1
+t = t >> 1

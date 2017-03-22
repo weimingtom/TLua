@@ -441,7 +441,8 @@ static Node *getfreepos (Table *t) {
 TValue *luaH_newkey (lua_State *L, Table *t, const TValue *key) {
   Node *mp;
   TValue aux;
-  if (ttisnil(key)) luaG_runerror(L, "table index is nil");
+  if (ttisnil(key))
+      luaG_runerror(L, "table index is nil");
   else if (ttisfloat(key)) {
     lua_Number n = fltvalue(key);
     lua_Integer k;

@@ -308,6 +308,7 @@ static void PrintCode(const Proto* f)
             case iABC:
                 printf("(iABC) [A]%d [ISK]%d",a ,ISK(b));
                 if (getBMode(o)!=OpArgN) printf("[B]%d",ISK(b) ? (MYK(INDEXK(b))) : b);
+                printf("[ISK]%d",ISK(c));
                 if (getCMode(o)!=OpArgN) printf("[C]%d",ISK(c) ? (MYK(INDEXK(c))) : c);
                 break;
             case iABx:

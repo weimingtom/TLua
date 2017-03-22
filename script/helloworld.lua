@@ -1,6 +1,2 @@
-a="TTcasd"
-print(#a)
-
-function add(a,b)
-    return a+b
-end
+local a = {}
+a[1] =10
