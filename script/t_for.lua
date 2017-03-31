@@ -1,9 +1,9 @@
 function values(t)
     local i = 0
     return function()
-            i=i+1
+        i=i+1
         return t[i]
-        end
+    end
 end
 
 
@@ -14,13 +14,3 @@ iter  = values(t)
 for elem in iter do
     print(elem)
 end
-
-iter1  = values(t)
-
-for elem in iter1 do
-    print("----------")
-    print(elem)
-end
-
-
-
