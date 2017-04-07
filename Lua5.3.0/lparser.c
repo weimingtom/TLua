@@ -1182,17 +1182,20 @@ static int cond (LexState *ls) {
 
 
 static void gotostat (LexState *ls, int pc) {
-  int line = ls->linenumber;
-  TString *label;
-  int g;
-  if (testnext(ls, TK_GOTO))
-    label = str_checkname(ls);
-  else {
-    luaX_next(ls);  /* skip break */
-    label = luaS_new(ls->L, "break");
-  }
-  g = newlabelentry(ls, &ls->dyd->gt, label, line, pc);
-  findlabel(ls, g);  /* close it if label already defined */
+    int line = ls->linenumber;
+    TString *label;
+    int g;
+    if (testnext(ls, TK_GOTO))
+        label = str_checkname(ls);
+    else {
+        luaX_next(ls);  /* skip break */
+        label = luaS_new(ls->L, "break");
+    }
+    const char * ttc = getstr(label);
+    printf("gotostat label-->%s \n",ttc);
+    
+    g = newlabelentry(ls, &ls->dyd->gt, label, line, pc);
+    findlabel(ls, g);  /* close it if label already defined */
 }
 
 
@@ -1534,6 +1537,7 @@ static void retstat (LexState *ls) {
 static void statement (LexState *ls) {
   int line = ls->linenumber;  /* may be needed for error messages */
   enterlevel(ls);
+    printf("token==> %d\n",ls->t.token);
   switch (ls->t.token) {
     case ';': {  /* stat -> ';' (empty statement) */
       luaX_next(ls);  /* skip ';' */
