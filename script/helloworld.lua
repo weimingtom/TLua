@@ -1,4 +1,5 @@
-a = {b=100}
-local c = a.b + 1
-print(c)
+function add(a,b,...)
+    print(a+b)
+end
 
+add(10,20,30,40,50,60)
