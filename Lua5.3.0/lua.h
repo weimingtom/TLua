@@ -15,7 +15,7 @@
 
 #include "luaconf.h"
 
-#define printls(ls,n) printf("%s ===> %d %d %d\n",n,ls->current,ls->linenumber,ls->t.token);
+#define printls(ls,n) printf("%s ===> %d %d %d %d\n",n,ls->lookahead.token,ls->current,ls->linenumber,ls->t.token);
 
 #define printts(ts,n)   printf("%s-->%s \n",n,getstr(ts));
 

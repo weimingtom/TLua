@@ -138,9 +138,7 @@ static TString *str_checkname (LexState *ls) {
     TString *ts;
     check(ls, TK_NAME);
     ts = ls->t.seminfo.ts;
-    printf("str_checkname enter token=> %d ==> %d %c\n",ls->t.token,ls->current,ls->current);
     luaX_next(ls);
-    printf("str_checkname  leave token=> %d ==> %d %c\n",ls->t.token,ls->current,ls->current);
     return ts;
 }
 
@@ -301,9 +299,7 @@ static int singlevaraux (FuncState *fs, TString *n, expdesc *var, int base) {
 
 static void singlevar (LexState *ls, expdesc *var) {
     TString *varname = str_checkname(ls);
-    const char * ttc = getstr(varname);
-    printf("varname-->%s \n",ttc);
-    
+    printts(varname, "singlevar")
     FuncState *fs = ls->fs;
     if (singlevaraux(fs, varname, var, 1) == VVOID) {  /* global name? */
         expdesc key;
@@ -592,7 +588,6 @@ static void close_func (LexState *ls) {
  ** so it is handled in separate.
  */
 static int block_follow (LexState *ls, int withuntil) {
-    printls(ls,"block_follow");
     switch (ls->t.token) {
         case TK_ELSE: case TK_ELSEIF:
         case TK_END: case TK_EOS:
@@ -882,8 +877,6 @@ static void funcargs (LexState *ls, expdesc *f, int line) {
 
 static void primaryexp (LexState *ls, expdesc *v) {
     /* primaryexp -> NAME | '(' expr ')' */
-    printf("primaryexp token ==> %d \n",ls->t.token);
-
     switch (ls->t.token) {
         case '(': {
             int line = ls->linenumber;
@@ -1559,7 +1552,6 @@ static void retstat (LexState *ls) {
 static void statement (LexState *ls) {
     int line = ls->linenumber;  /* may be needed for error messages */
     enterlevel(ls);
-    printf("statement token==> %d\n",ls->t.token);
     switch (ls->t.token) {
         case ';': {  /* stat -> ';' (empty statement) */
             luaX_next(ls);  /* skip ';' */

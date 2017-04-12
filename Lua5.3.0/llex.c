@@ -468,22 +468,20 @@ static void read_string (LexState *ls, int del, SemInfo *seminfo) {
 static int llex (LexState *ls, SemInfo *seminfo) {
     luaZ_resetbuffer(ls->buff);
     for (;;) {
-        printls(ls, "llex start")
         switch (ls->current) {
             case '\n': case '\r': {  /* line breaks */
                 inclinenumber(ls);
                 break;
             }
             case ' ': case '\f': case '\t': case '\v': {  /* spaces */
-//                next(ls);
-//                ls->current = zgetc(ls->z);
-                if (((ls->z)->n--) > 0 ) {
-                    ls->current = cast(unsigned char, (*(ls->z)->p++));
-                }
-                else {
-                    ls->current =  luaZ_fill(ls->z);
-                }
-                printls(ls, "llex spaces")
+                next(ls);
+//                if (((ls->z)->n--) > 0 ) {
+//                    ls->current = cast(unsigned char, (*(ls->z)->p++));
+//                }
+//                else {
+//                    ls->current =  luaZ_fill(ls->z);
+//                }
+                printf("spaces  \n");
                 break;
             }
             case '-': {  /* '-' or '--' (comment) */
@@ -592,8 +590,8 @@ static int llex (LexState *ls, SemInfo *seminfo) {
                     do {
                         printls(ls, "llex default start")
                         save_and_next(ls);
+                        printls(ls, "llex default end")
                     } while (lislalnum(ls->current));
-                    printls(ls, "llex default end")
 
                     ts = luaX_newstring(ls, luaZ_buffer(ls->buff),
                                         luaZ_bufflen(ls->buff));
@@ -633,8 +631,11 @@ void luaX_next (LexState *ls) {
 
 
 int luaX_lookahead (LexState *ls) {
+    printf("luaX_lookahead start %d %d %d %d \n",ls->lookahead.token,ls->current,ls->linenumber,ls->t.token);
     lua_assert(ls->lookahead.token == TK_EOS);
     ls->lookahead.token = llex(ls, &ls->lookahead.seminfo);
+    printf("luaX_lookahead end %d %d %d %d \n",ls->lookahead.token,ls->current,ls->linenumber,ls->t.token);
+
     return ls->lookahead.token;
 }
 

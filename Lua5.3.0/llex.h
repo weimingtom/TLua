@@ -27,13 +27,13 @@ enum RESERVED {
   /* terminal symbols denoted by reserved words */
   TK_AND = FIRST_RESERVED/*257*/, TK_BREAK/*258*/,
   TK_DO/*259*/, TK_ELSE/*260*/, TK_ELSEIF/*261*/, TK_END/*262*/, TK_FALSE/*263*/, TK_FOR/*264*/, TK_FUNCTION/*265*/,
-  TK_GOTO/*266*/, TK_IF/*267*/, TK_IN/*268*/, TK_LOCAL/*269*/, TK_NIL/*270*/, TK_NOT/*270*/, TK_OR/*271*/, TK_REPEAT/*272*/,
-  TK_RETURN/*273*/, TK_THEN/*274*/, TK_TRUE/*275*/, TK_UNTIL/*276*/, TK_WHILE/*277*/,
+  TK_GOTO/*266*/, TK_IF/*267*/, TK_IN/*268*/, TK_LOCAL/*269*/, TK_NIL/*270*/, TK_NOT/*271*/, TK_OR/*272*/, TK_REPEAT/*273*/,
+  TK_RETURN/*274*/, TK_THEN/*275*/, TK_TRUE/*276*/, TK_UNTIL/*277*/, TK_WHILE/*278*/,
   /* other terminal symbols */
-  TK_IDIV/*278*/, TK_CONCAT/*279*/, TK_DOTS/*280*/, TK_EQ/*281*/, TK_GE/*282*/, TK_LE/*283*/, TK_NE/*284*/,
-  TK_SHL/*285*/, TK_SHR/*286*/,
-  TK_DBCOLON/*287*/, TK_EOS/*288*/,
-  TK_FLT/*289*/, TK_INT/*290*/, TK_NAME/*291*/, TK_STRING/*292*/
+  TK_IDIV/*279*/, TK_CONCAT/*280*/, TK_DOTS/*281*/, TK_EQ/*282*/, TK_GE/*283*/, TK_LE/*284*/, TK_NE/*285*/,
+  TK_SHL/*286*/, TK_SHR/*287*/,
+  TK_DBCOLON/*288*/, TK_EOS/*289*/,
+  TK_FLT/*290*/, TK_INT/*291*/, TK_NAME/*292*/, TK_STRING/*293*/
 };
 
 /* number of reserved words */
