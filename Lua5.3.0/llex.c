@@ -162,6 +162,7 @@ static void inclinenumber (LexState *ls) {
 
 void luaX_setinput (lua_State *L, LexState *ls, ZIO *z, TString *source,
                     int firstchar) {
+    printts(source, "luaX_setinput")
     ls->t.token = 0;
     ls->decpoint = '.';
     ls->L = L;
@@ -467,14 +468,22 @@ static void read_string (LexState *ls, int del, SemInfo *seminfo) {
 static int llex (LexState *ls, SemInfo *seminfo) {
     luaZ_resetbuffer(ls->buff);
     for (;;) {
-        printf("llex ls->current ==> %d %c\n",ls->current,ls->current);
+        printls(ls, "llex start")
         switch (ls->current) {
             case '\n': case '\r': {  /* line breaks */
                 inclinenumber(ls);
                 break;
             }
             case ' ': case '\f': case '\t': case '\v': {  /* spaces */
-                next(ls);
+//                next(ls);
+//                ls->current = zgetc(ls->z);
+                if (((ls->z)->n--) > 0 ) {
+                    ls->current = cast(unsigned char, (*(ls->z)->p++));
+                }
+                else {
+                    ls->current =  luaZ_fill(ls->z);
+                }
+                printls(ls, "llex spaces")
                 break;
             }
             case '-': {  /* '-' or '--' (comment) */
@@ -581,15 +590,15 @@ static int llex (LexState *ls, SemInfo *seminfo) {
                 if (lislalpha(ls->current)) {  /* identifier or reserved word? */
                     TString *ts;
                     do {
-                        printf("llex default  ==> %d %c\n",ls->current,ls->current);
+                        printls(ls, "llex default start")
                         save_and_next(ls);
                     } while (lislalnum(ls->current));
-                    printf("ls->current ==> %d %c\n",ls->current,ls->current);
+                    printls(ls, "llex default end")
 
                     ts = luaX_newstring(ls, luaZ_buffer(ls->buff),
                                         luaZ_bufflen(ls->buff));
-                    const char * ttc = getstr(ts);
-                    printf("ttc-->%s \n",ttc);
+                    
+                    printts(ts,"llex default")
                     
                     seminfo->ts = ts;
                     if (isreserved(ts))  /* reserved word? */
@@ -600,7 +609,6 @@ static int llex (LexState *ls, SemInfo *seminfo) {
                 }
                 else {  /* single-char tokens (+ - / ...) */
                     int c = ls->current;
-                    printf("single-char token ===>%d \n",c);
                     next(ls);
                     return c;
                 }
@@ -611,8 +619,7 @@ static int llex (LexState *ls, SemInfo *seminfo) {
 
 
 void luaX_next (LexState *ls) {
-    printf("luaX_next  ==> %d %c\n",ls->current,ls->current);
-
+    printls(ls, "luaX_next start")
     ls->lastline = ls->linenumber;
     if (ls->lookahead.token != TK_EOS) {  /* is there a look-ahead token? */
         ls->t = ls->lookahead;  /* use this one */
@@ -620,7 +627,8 @@ void luaX_next (LexState *ls) {
     }
     else
         ls->t.token = llex(ls, &ls->t.seminfo);  /* read next token */
-    printf("luaX_next t.token =%d \n",ls->t.token);
+    printls(ls, "luaX_next end")
+
 }
 
 

@@ -15,6 +15,10 @@
 
 #include "luaconf.h"
 
+#define printls(ls,n) printf("%s ===> %d %d %d\n",n,ls->current,ls->linenumber,ls->t.token);
+
+#define printts(ts,n)   printf("%s-->%s \n",n,getstr(ts));
+
 
 #define LUA_VERSION_MAJOR	"5"
 #define LUA_VERSION_MINOR	"3"

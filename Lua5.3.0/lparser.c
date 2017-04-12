@@ -120,7 +120,7 @@ static void checknext (LexState *ls, int c) {
 #define check_condition(ls,c,msg)	{ if (!(c)) luaX_syntaxerror(ls, msg); }
 
 
-
+/* 匹配 逻辑*/
 static void check_match (LexState *ls, int what, int who, int where) {
     if (!testnext(ls, what)) {
         if (where == ls->linenumber)
@@ -592,12 +592,15 @@ static void close_func (LexState *ls) {
  ** so it is handled in separate.
  */
 static int block_follow (LexState *ls, int withuntil) {
+    printls(ls,"block_follow");
     switch (ls->t.token) {
         case TK_ELSE: case TK_ELSEIF:
         case TK_END: case TK_EOS:
             return 1;
-        case TK_UNTIL: return withuntil;
-        default: return 0;
+        case TK_UNTIL:
+            return withuntil;
+        default:
+            return 0;
     }
 }
 
@@ -933,7 +936,8 @@ static void suffixedexp (LexState *ls, expdesc *v) {
                 funcargs(ls, v, line);
                 break;
             }
-            default: return;
+            default:
+                return;
         }
     }
 }
