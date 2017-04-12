@@ -579,7 +579,8 @@ int luaK_exp2RK (FuncState *fs, expdesc *e) {
      vk:
       if (e->u.info <= MAXINDEXRK)  /* constant fits in 'argC'? */
         return RKASK(e->u.info);
-      else break;
+      else
+          break;
     }
     default: break;
   }

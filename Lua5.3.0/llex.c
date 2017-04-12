@@ -467,7 +467,7 @@ static void read_string (LexState *ls, int del, SemInfo *seminfo) {
 static int llex (LexState *ls, SemInfo *seminfo) {
     luaZ_resetbuffer(ls->buff);
     for (;;) {
-        printf("ls->current ==> %d %c\n",ls->current,ls->current);
+        printf("llex ls->current ==> %d %c\n",ls->current,ls->current);
         switch (ls->current) {
             case '\n': case '\r': {  /* line breaks */
                 inclinenumber(ls);
@@ -502,35 +502,49 @@ static int llex (LexState *ls, SemInfo *seminfo) {
                     read_long_string(ls, seminfo, sep);
                     return TK_STRING;
                 }
-                else if (sep == -1) return '[';
-                else lexerror(ls, "invalid long string delimiter", TK_STRING);
+                else if (sep == -1)
+                    return '[';
+                else
+                    lexerror(ls, "invalid long string delimiter", TK_STRING);
             }
             case '=': {
                 next(ls);
-                if (check_next1(ls, '=')) return TK_EQ;
-                else return '=';
+                if (check_next1(ls, '='))
+                    return TK_EQ;
+                else
+                    return '=';
             }
             case '<': {
                 next(ls);
-                if (check_next1(ls, '=')) return TK_LE;
-                else if (check_next1(ls, '<')) return TK_SHL;
-                else return '<';
+                if (check_next1(ls, '='))
+                    return TK_LE;
+                else if (check_next1(ls, '<'))
+                    return TK_SHL;
+                else
+                    return '<';
             }
             case '>': {
                 next(ls);
-                if (check_next1(ls, '=')) return TK_GE;
-                else if (check_next1(ls, '>')) return TK_SHR;
-                else return '>';
+                if (check_next1(ls, '='))
+                    return TK_GE;
+                else if (check_next1(ls, '>'))
+                    return TK_SHR;
+                else
+                    return '>';
             }
             case '/': {
                 next(ls);
-                if (check_next1(ls, '/')) return TK_IDIV;
-                else return '/';
+                if (check_next1(ls, '/'))
+                    return TK_IDIV;
+                else
+                    return '/';
             }
             case '~': {
                 next(ls);
-                if (check_next1(ls, '=')) return TK_NE;
-                else return '~';
+                if (check_next1(ls, '='))
+                    return TK_NE;
+                else
+                    return '~';
             }
             case ':': {
                 next(ls);
@@ -548,10 +562,13 @@ static int llex (LexState *ls, SemInfo *seminfo) {
                 if (check_next1(ls, '.')) {
                     if (check_next1(ls, '.'))
                         return TK_DOTS;   /* '...' */
-                    else return TK_CONCAT;   /* '..' */
+                    else
+                        return TK_CONCAT;   /* '..' */
                 }
-                else if (!lisdigit(ls->current)) return '.';
-                else return read_numeral(ls, seminfo);
+                else if (!lisdigit(ls->current))
+                    return '.';
+                else
+                    return read_numeral(ls, seminfo);
             }
             case '0': case '1': case '2': case '3': case '4':
             case '5': case '6': case '7': case '8': case '9': {
@@ -564,7 +581,7 @@ static int llex (LexState *ls, SemInfo *seminfo) {
                 if (lislalpha(ls->current)) {  /* identifier or reserved word? */
                     TString *ts;
                     do {
-                        printf("ls->current ==> %d %c\n",ls->current,ls->current);
+                        printf("llex default  ==> %d %c\n",ls->current,ls->current);
                         save_and_next(ls);
                     } while (lislalnum(ls->current));
                     printf("ls->current ==> %d %c\n",ls->current,ls->current);
@@ -583,7 +600,7 @@ static int llex (LexState *ls, SemInfo *seminfo) {
                 }
                 else {  /* single-char tokens (+ - / ...) */
                     int c = ls->current;
-                    printf("c===>%d \n",c);
+                    printf("single-char token ===>%d \n",c);
                     next(ls);
                     return c;
                 }
@@ -594,7 +611,8 @@ static int llex (LexState *ls, SemInfo *seminfo) {
 
 
 void luaX_next (LexState *ls) {
-    printf("ls->lastline %d  ls->linenumber %d \n",ls->lastline,ls->linenumber);
+    printf("luaX_next  ==> %d %c\n",ls->current,ls->current);
+
     ls->lastline = ls->linenumber;
     if (ls->lookahead.token != TK_EOS) {  /* is there a look-ahead token? */
         ls->t = ls->lookahead;  /* use this one */
@@ -602,7 +620,7 @@ void luaX_next (LexState *ls) {
     }
     else
         ls->t.token = llex(ls, &ls->t.seminfo);  /* read next token */
-    printf("ls->t.token =%d \n",ls->t.token);
+    printf("luaX_next t.token =%d \n",ls->t.token);
 }
 
 

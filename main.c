@@ -79,8 +79,8 @@ main(int argc, const char * argv[])
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);
     
-    
-    test_hello(L,root);
+    test_compiler(L, root);
+//    test_hello(L,root);
     
 //    test_global(L,root);
 //    test_c_call_lua(L,root);

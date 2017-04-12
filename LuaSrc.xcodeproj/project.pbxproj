@@ -83,6 +83,64 @@
 		7928C0F31E690FE60058F1DE /* c_userdate_lua.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = c_userdate_lua.c; sourceTree = "<group>"; };
 		793A70EC1E0A1A2500AF6CF2 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		798046931A4C075D007DD361 /* LuaSrc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LuaSrc; sourceTree = BUILT_PRODUCTS_DIR; };
+		799834001E9CB01400BAE271 /* dec.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dec.lua; sourceTree = "<group>"; };
+		799834011E9CB01400BAE271 /* helloworld.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helloworld.lua; sourceTree = "<group>"; };
+		799834021E9CB01400BAE271 /* lua */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = lua; sourceTree = "<group>"; };
+		799834031E9CB01400BAE271 /* luac */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = luac; sourceTree = "<group>"; };
+		799834041E9CB01400BAE271 /* luac.out */ = {isa = PBXFileReference; lastKnownFileType = file; path = luac.out; sourceTree = "<group>"; };
+		799834051E9CB01400BAE271 /* npm-debug.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "npm-debug.log"; sourceTree = "<group>"; };
+		799834061E9CB01400BAE271 /* t_codek.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_codek.lua; sourceTree = "<group>"; };
+		799834071E9CB01400BAE271 /* test_coroutine.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_coroutine.lua; sourceTree = "<group>"; };
+		799834081E9CB01400BAE271 /* tOP_ADD.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_ADD.lua; sourceTree = "<group>"; };
+		799834091E9CB01400BAE271 /* tOP_Arith.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_Arith.lua; sourceTree = "<group>"; };
+		7998340A1E9CB01400BAE271 /* tOP_Arith_2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_Arith_2.lua; sourceTree = "<group>"; };
+		7998340B1E9CB01400BAE271 /* tOP_BAND.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_BAND.lua; sourceTree = "<group>"; };
+		7998340C1E9CB01400BAE271 /* tOP_BNOT.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_BNOT.lua; sourceTree = "<group>"; };
+		7998340D1E9CB01400BAE271 /* tOP_BOR.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_BOR.lua; sourceTree = "<group>"; };
+		7998340E1E9CB01400BAE271 /* tOP_BXOR.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_BXOR.lua; sourceTree = "<group>"; };
+		7998340F1E9CB01400BAE271 /* tOP_CLOSURE.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_CLOSURE.lua; sourceTree = "<group>"; };
+		799834101E9CB01400BAE271 /* tOP_CONCAT.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_CONCAT.lua; sourceTree = "<group>"; };
+		799834111E9CB01400BAE271 /* tOP_DIV.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_DIV.lua; sourceTree = "<group>"; };
+		799834121E9CB01400BAE271 /* tOP_G-SETTABUP.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tOP_G-SETTABUP.lua"; sourceTree = "<group>"; };
+		799834131E9CB01400BAE271 /* tOP_GETTABLE.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_GETTABLE.lua; sourceTree = "<group>"; };
+		799834141E9CB01400BAE271 /* tOP_GETTABUP.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_GETTABUP.lua; sourceTree = "<group>"; };
+		799834151E9CB01400BAE271 /* tOP_GETUPVAL.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_GETUPVAL.lua; sourceTree = "<group>"; };
+		799834161E9CB01400BAE271 /* tOP_IDIV.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_IDIV.lua; sourceTree = "<group>"; };
+		799834171E9CB01400BAE271 /* tOP_LEN.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LEN.lua; sourceTree = "<group>"; };
+		799834181E9CB01400BAE271 /* tOP_LOADBOOL.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LOADBOOL.lua; sourceTree = "<group>"; };
+		799834191E9CB01400BAE271 /* tOP_LOADBOOL_2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LOADBOOL_2.lua; sourceTree = "<group>"; };
+		7998341A1E9CB01400BAE271 /* tOP_LOADBOOL_3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LOADBOOL_3.lua; sourceTree = "<group>"; };
+		7998341B1E9CB01400BAE271 /* tOP_LOADGETTABLE.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LOADGETTABLE.lua; sourceTree = "<group>"; };
+		7998341C1E9CB01400BAE271 /* tOP_LOADK.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LOADK.lua; sourceTree = "<group>"; };
+		7998341D1E9CB01400BAE271 /* tOP_LOADNIL.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LOADNIL.lua; sourceTree = "<group>"; };
+		7998341E1E9CB01400BAE271 /* tOP_LOADNIL_2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LOADNIL_2.lua; sourceTree = "<group>"; };
+		7998341F1E9CB01400BAE271 /* tOP_LOADNIL_3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LOADNIL_3.lua; sourceTree = "<group>"; };
+		799834201E9CB01400BAE271 /* tOP_LOADNIL_4.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_LOADNIL_4.lua; sourceTree = "<group>"; };
+		799834211E9CB01400BAE271 /* tOP_MOD.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_MOD.lua; sourceTree = "<group>"; };
+		799834221E9CB01400BAE271 /* tOP_MOVE.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_MOVE.lua; sourceTree = "<group>"; };
+		799834231E9CB01400BAE271 /* tOP_MUL.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_MUL.lua; sourceTree = "<group>"; };
+		799834241E9CB01400BAE271 /* tOP_NEWTABLE.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_NEWTABLE.lua; sourceTree = "<group>"; };
+		799834251E9CB01400BAE271 /* tOP_NEWTABLE_2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_NEWTABLE_2.lua; sourceTree = "<group>"; };
+		799834261E9CB01400BAE271 /* tOP_NEWTABLE_3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_NEWTABLE_3.lua; sourceTree = "<group>"; };
+		799834271E9CB01400BAE271 /* tOP_NOT.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_NOT.lua; sourceTree = "<group>"; };
+		799834281E9CB01400BAE271 /* tOP_POW.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_POW.lua; sourceTree = "<group>"; };
+		799834291E9CB01400BAE271 /* tOP_SELF.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_SELF.lua; sourceTree = "<group>"; };
+		7998342A1E9CB01400BAE271 /* tOP_SELF_2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_SELF_2.lua; sourceTree = "<group>"; };
+		7998342B1E9CB01400BAE271 /* tOP_SETLIST.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_SETLIST.lua; sourceTree = "<group>"; };
+		7998342C1E9CB01400BAE271 /* tOP_SETTABUP.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_SETTABUP.lua; sourceTree = "<group>"; };
+		7998342D1E9CB01400BAE271 /* tOP_SETUPVal.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_SETUPVal.lua; sourceTree = "<group>"; };
+		7998342E1E9CB01400BAE271 /* tOP_SHL.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_SHL.lua; sourceTree = "<group>"; };
+		7998342F1E9CB01400BAE271 /* tOP_SHR.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_SHR.lua; sourceTree = "<group>"; };
+		799834301E9CB01400BAE271 /* tOP_SUB.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_SUB.lua; sourceTree = "<group>"; };
+		799834311E9CB01400BAE271 /* tOP_UNM.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_UNM.lua; sourceTree = "<group>"; };
+		799834321E9CB01400BAE271 /* tOP_VALUE.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_VALUE.lua; sourceTree = "<group>"; };
+		799834331E9CC40000BAE271 /* t_t.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_t.lua; sourceTree = "<group>"; };
+		799834341E9CC40000BAE271 /* t_iterate.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_iterate.lua; sourceTree = "<group>"; };
+		799834351E9CC40000BAE271 /* t_goto.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_goto.lua; sourceTree = "<group>"; };
+		799834361E9CC40000BAE271 /* t_function.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_function.lua; sourceTree = "<group>"; };
+		799834371E9CC40000BAE271 /* t_for.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_for.lua; sourceTree = "<group>"; };
+		799834381E9CC40000BAE271 /* t_for_2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_for_2.lua; sourceTree = "<group>"; };
+		799834391E9CC40000BAE271 /* t_codek.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t_codek.lua; sourceTree = "<group>"; };
 		799C55161E8963D000E9D08E /* lapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lapi.c; sourceTree = "<group>"; };
 		799C55171E8963D000E9D08E /* lapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lapi.h; sourceTree = "<group>"; };
 		799C55181E8963D000E9D08E /* lauxlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lauxlib.c; sourceTree = "<group>"; };
@@ -233,6 +291,7 @@
 		7980468A1A4C075D007DD361 = {
 			isa = PBXGroup;
 			children = (
+				799833FF1E9CB01400BAE271 /* OpCode */,
 				799C55151E8963D000E9D08E /* Lua5.3.0 */,
 				79C89D241E5C00A900C98513 /* C */,
 				79C89D0D1E5BFFED00C98513 /* script */,
@@ -247,6 +306,64 @@
 				798046931A4C075D007DD361 /* LuaSrc */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		799833FF1E9CB01400BAE271 /* OpCode */ = {
+			isa = PBXGroup;
+			children = (
+				799834001E9CB01400BAE271 /* dec.lua */,
+				799834011E9CB01400BAE271 /* helloworld.lua */,
+				799834021E9CB01400BAE271 /* lua */,
+				799834031E9CB01400BAE271 /* luac */,
+				799834041E9CB01400BAE271 /* luac.out */,
+				799834051E9CB01400BAE271 /* npm-debug.log */,
+				799834061E9CB01400BAE271 /* t_codek.lua */,
+				799834071E9CB01400BAE271 /* test_coroutine.lua */,
+				799834081E9CB01400BAE271 /* tOP_ADD.lua */,
+				799834091E9CB01400BAE271 /* tOP_Arith.lua */,
+				7998340A1E9CB01400BAE271 /* tOP_Arith_2.lua */,
+				7998340B1E9CB01400BAE271 /* tOP_BAND.lua */,
+				7998340C1E9CB01400BAE271 /* tOP_BNOT.lua */,
+				7998340D1E9CB01400BAE271 /* tOP_BOR.lua */,
+				7998340E1E9CB01400BAE271 /* tOP_BXOR.lua */,
+				7998340F1E9CB01400BAE271 /* tOP_CLOSURE.lua */,
+				799834101E9CB01400BAE271 /* tOP_CONCAT.lua */,
+				799834111E9CB01400BAE271 /* tOP_DIV.lua */,
+				799834121E9CB01400BAE271 /* tOP_G-SETTABUP.lua */,
+				799834131E9CB01400BAE271 /* tOP_GETTABLE.lua */,
+				799834141E9CB01400BAE271 /* tOP_GETTABUP.lua */,
+				799834151E9CB01400BAE271 /* tOP_GETUPVAL.lua */,
+				799834161E9CB01400BAE271 /* tOP_IDIV.lua */,
+				799834171E9CB01400BAE271 /* tOP_LEN.lua */,
+				799834181E9CB01400BAE271 /* tOP_LOADBOOL.lua */,
+				799834191E9CB01400BAE271 /* tOP_LOADBOOL_2.lua */,
+				7998341A1E9CB01400BAE271 /* tOP_LOADBOOL_3.lua */,
+				7998341B1E9CB01400BAE271 /* tOP_LOADGETTABLE.lua */,
+				7998341C1E9CB01400BAE271 /* tOP_LOADK.lua */,
+				7998341D1E9CB01400BAE271 /* tOP_LOADNIL.lua */,
+				7998341E1E9CB01400BAE271 /* tOP_LOADNIL_2.lua */,
+				7998341F1E9CB01400BAE271 /* tOP_LOADNIL_3.lua */,
+				799834201E9CB01400BAE271 /* tOP_LOADNIL_4.lua */,
+				799834211E9CB01400BAE271 /* tOP_MOD.lua */,
+				799834221E9CB01400BAE271 /* tOP_MOVE.lua */,
+				799834231E9CB01400BAE271 /* tOP_MUL.lua */,
+				799834241E9CB01400BAE271 /* tOP_NEWTABLE.lua */,
+				799834251E9CB01400BAE271 /* tOP_NEWTABLE_2.lua */,
+				799834261E9CB01400BAE271 /* tOP_NEWTABLE_3.lua */,
+				799834271E9CB01400BAE271 /* tOP_NOT.lua */,
+				799834281E9CB01400BAE271 /* tOP_POW.lua */,
+				799834291E9CB01400BAE271 /* tOP_SELF.lua */,
+				7998342A1E9CB01400BAE271 /* tOP_SELF_2.lua */,
+				7998342B1E9CB01400BAE271 /* tOP_SETLIST.lua */,
+				7998342C1E9CB01400BAE271 /* tOP_SETTABUP.lua */,
+				7998342D1E9CB01400BAE271 /* tOP_SETUPVal.lua */,
+				7998342E1E9CB01400BAE271 /* tOP_SHL.lua */,
+				7998342F1E9CB01400BAE271 /* tOP_SHR.lua */,
+				799834301E9CB01400BAE271 /* tOP_SUB.lua */,
+				799834311E9CB01400BAE271 /* tOP_UNM.lua */,
+				799834321E9CB01400BAE271 /* tOP_VALUE.lua */,
+			);
+			path = OpCode;
 			sourceTree = "<group>";
 		};
 		799C55151E8963D000E9D08E /* Lua5.3.0 */ = {
@@ -378,6 +495,13 @@
 		79C89D0D1E5BFFED00C98513 /* script */ = {
 			isa = PBXGroup;
 			children = (
+				799834331E9CC40000BAE271 /* t_t.lua */,
+				799834341E9CC40000BAE271 /* t_iterate.lua */,
+				799834351E9CC40000BAE271 /* t_goto.lua */,
+				799834361E9CC40000BAE271 /* t_function.lua */,
+				799834371E9CC40000BAE271 /* t_for.lua */,
+				799834381E9CC40000BAE271 /* t_for_2.lua */,
+				799834391E9CC40000BAE271 /* t_codek.lua */,
 				79C89D0E1E5BFFED00C98513 /* base.lua */,
 				79C89D0F1E5BFFED00C98513 /* c_Call_lua.lua */,
 				79C89D101E5BFFED00C98513 /* c_global_Var_lua.lua */,

@@ -90,16 +90,18 @@ static l_noret errorlimit (FuncState *fs, int limit, const char *what) {
 
 
 static void checklimit (FuncState *fs, int v, int l, const char *what) {
-    if (v > l) errorlimit(fs, l, what);
+    if (v > l)
+        errorlimit(fs, l, what);
 }
 
-
+/* 测试下一个字符 c*/
 static int testnext (LexState *ls, int c) {
     if (ls->t.token == c) {
         luaX_next(ls);
         return 1;
     }
-    else return 0;
+    else
+        return 0;
 }
 
 
@@ -136,7 +138,9 @@ static TString *str_checkname (LexState *ls) {
     TString *ts;
     check(ls, TK_NAME);
     ts = ls->t.seminfo.ts;
+    printf("str_checkname enter token=> %d ==> %d %c\n",ls->t.token,ls->current,ls->current);
     luaX_next(ls);
+    printf("str_checkname  leave token=> %d ==> %d %c\n",ls->t.token,ls->current,ls->current);
     return ts;
 }
 
@@ -668,7 +672,8 @@ static void recfield (LexState *ls, struct ConsControl *cc) {
 
 
 static void closelistfield (FuncState *fs, struct ConsControl *cc) {
-    if (cc->v.k == VVOID) return;  /* there is no list item */
+    if (cc->v.k == VVOID)
+        return;  /* there is no list item */
     luaK_exp2nextreg(fs, &cc->v);
     cc->v.k = VVOID;
     if (cc->tostore == LFIELDS_PER_FLUSH) {
@@ -739,7 +744,8 @@ static void constructor (LexState *ls, expdesc *t) {
     checknext(ls, '{');
     do {
         lua_assert(cc.v.k == VVOID || cc.tostore > 0);
-        if (ls->t.token == '}') break;
+        if (ls->t.token == '}')
+            break;
         closelistfield(fs, &cc);
         field(ls, &cc);
     } while (testnext(ls, ',') || testnext(ls, ';'));
@@ -873,6 +879,8 @@ static void funcargs (LexState *ls, expdesc *f, int line) {
 
 static void primaryexp (LexState *ls, expdesc *v) {
     /* primaryexp -> NAME | '(' expr ')' */
+    printf("primaryexp token ==> %d \n",ls->t.token);
+
     switch (ls->t.token) {
         case '(': {
             int line = ls->linenumber;
@@ -1547,7 +1555,7 @@ static void retstat (LexState *ls) {
 static void statement (LexState *ls) {
     int line = ls->linenumber;  /* may be needed for error messages */
     enterlevel(ls);
-    printf("token==> %d\n",ls->t.token);
+    printf("statement token==> %d\n",ls->t.token);
     switch (ls->t.token) {
         case ';': {  /* stat -> ';' (empty statement) */
             luaX_next(ls);  /* skip ';' */
