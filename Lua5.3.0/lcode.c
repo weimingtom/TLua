@@ -378,7 +378,7 @@ static int nilK (FuncState *fs) {
     return addk(fs, &k, &v);
 }
 
-
+/*在需要多个返回值的上下文中，通过调用 luaK\_setreturns 函数，回填指令中的返回值数量*/
 void luaK_setreturns (FuncState *fs, expdesc *e, int nresults) {
     if (e->k == VCALL) {  /* expression is an open function call? */
         SETARG_C(getcode(fs, e), nresults+1);
@@ -390,7 +390,7 @@ void luaK_setreturns (FuncState *fs, expdesc *e, int nresults) {
     }
 }
 
-
+/*在需要单一值得上下文中，通过调用luaK\_setoneret 函数，将表达式设置成单返回值*/
 void luaK_setoneret (FuncState *fs, expdesc *e) {
     if (e->k == VCALL) {  /* expression is an open function call? */
         e->k = VNONRELOC;
@@ -402,7 +402,7 @@ void luaK_setoneret (FuncState *fs, expdesc *e) {
     }
 }
 
-
+/*函数为变量表达式生成估值计算的指令*/
 void luaK_dischargevars (FuncState *fs, expdesc *e) {
     switch (e->k) {
         case VLOCAL: {
@@ -551,7 +551,7 @@ void luaK_exp2val (FuncState *fs, expdesc *e) {
         luaK_dischargevars(fs, e);
 }
 
-
+/*当高层语义要将常量当作其他指令的参数时，会调用luaK_exp2RK函数，返回这个常量对应的id*/
 int luaK_exp2RK (FuncState *fs, expdesc *e) {
     luaK_exp2val(fs, e);
     switch (e->k) {
@@ -588,7 +588,7 @@ int luaK_exp2RK (FuncState *fs, expdesc *e) {
     return luaK_exp2anyreg(fs, e);
 }
 
-
+/*变量表达式除了用来获取变量值，还有另外一个用途，就是在赋值语句中当作赋值的目标，也就是将其他表达式的值存储到这个变量表达式中*/
 void luaK_storevar (FuncState *fs, expdesc *var, expdesc *ex) {
     switch (var->k) {
         case VLOCAL: {
@@ -837,7 +837,7 @@ static void codecomp (FuncState *fs, OpCode op, int cond, expdesc *e1,
     e1->k = VJMP;
 }
 
-
+/* 对于一元操作符，会调用 luaK\_prefix 函数生成代码。 */
 void luaK_prefix (FuncState *fs, UnOpr op, expdesc *e, int line) {
     expdesc e2;
     e2.t = e2.f = NO_JUMP; e2.k = VKINT; e2.u.ival = 0;
@@ -846,7 +846,8 @@ void luaK_prefix (FuncState *fs, UnOpr op, expdesc *e, int line) {
             codeexpval(fs, cast(OpCode, (op - OPR_MINUS) + OP_UNM), e, &e2, line);
             break;
         }
-        case OPR_NOT: codenot(fs, e); break;
+        case OPR_NOT:
+            codenot(fs, e); break;
         default: lua_assert(0);
     }
 }

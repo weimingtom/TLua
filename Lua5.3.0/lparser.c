@@ -234,7 +234,8 @@ static int newupvalue (FuncState *fs, TString *name, expdesc *v) {
     checklimit(fs, fs->nups + 1, MAXUPVAL, "upvalues");
     luaM_growvector(fs->ls->L, f->upvalues, fs->nups, f->sizeupvalues,
                     Upvaldesc, MAXUPVAL, "upvalues");
-    while (oldsize < f->sizeupvalues) f->upvalues[oldsize++].name = NULL;
+    while (oldsize < f->sizeupvalues)
+        f->upvalues[oldsize++].name = NULL;
     f->upvalues[fs->nups].instack = (v->k == VLOCAL);
     f->upvalues[fs->nups].idx = cast_byte(v->u.info);
     f->upvalues[fs->nups].name = name;
@@ -299,7 +300,6 @@ static int singlevaraux (FuncState *fs, TString *n, expdesc *var, int base) {
 
 static void singlevar (LexState *ls, expdesc *var) {
     TString *varname = str_checkname(ls);
-    printts(varname, "singlevar")
     FuncState *fs = ls->fs;
     if (singlevaraux(fs, varname, var, 1) == VVOID) {  /* global name? */
         expdesc key;
@@ -993,39 +993,66 @@ static void simpleexp (LexState *ls, expdesc *v) {
 
 static UnOpr getunopr (int op) {
     switch (op) {
-        case TK_NOT: return OPR_NOT;
-        case '-': return OPR_MINUS;
-        case '~': return OPR_BNOT;
-        case '#': return OPR_LEN;
-        default: return OPR_NOUNOPR;
+        case TK_NOT:
+            return OPR_NOT;
+        case '-':
+            return OPR_MINUS;
+        case '~':
+            return OPR_BNOT;
+        case '#':
+            return OPR_LEN;
+        default:
+            return OPR_NOUNOPR;
     }
 }
 
 
 static BinOpr getbinopr (int op) {
     switch (op) {
-        case '+': return OPR_ADD;
-        case '-': return OPR_SUB;
-        case '*': return OPR_MUL;
-        case '%': return OPR_MOD;
-        case '^': return OPR_POW;
-        case '/': return OPR_DIV;
-        case TK_IDIV: return OPR_IDIV;
-        case '&': return OPR_BAND;
-        case '|': return OPR_BOR;
-        case '~': return OPR_BXOR;
-        case TK_SHL: return OPR_SHL;
-        case TK_SHR: return OPR_SHR;
-        case TK_CONCAT: return OPR_CONCAT;
-        case TK_NE: return OPR_NE;
-        case TK_EQ: return OPR_EQ;
-        case '<': return OPR_LT;
-        case TK_LE: return OPR_LE;
-        case '>': return OPR_GT;
-        case TK_GE: return OPR_GE;
-        case TK_AND: return OPR_AND;
-        case TK_OR: return OPR_OR;
-        default: return OPR_NOBINOPR;
+        case '+':
+            return OPR_ADD;
+        case '-':
+            return OPR_SUB;
+        case '*':
+            return OPR_MUL;
+        case '%':
+            return OPR_MOD;
+        case '^':
+            return OPR_POW;
+        case '/':
+            return OPR_DIV;
+        case TK_IDIV:
+            return OPR_IDIV;
+        case '&':
+            return OPR_BAND;
+        case '|':
+            return OPR_BOR;
+        case '~':
+            return OPR_BXOR;
+        case TK_SHL:
+            return OPR_SHL;
+        case TK_SHR:
+            return OPR_SHR;
+        case TK_CONCAT:
+            return OPR_CONCAT;
+        case TK_NE:
+            return OPR_NE;
+        case TK_EQ:
+            return OPR_EQ;
+        case '<':
+            return OPR_LT;
+        case TK_LE:
+            return OPR_LE;
+        case '>':
+            return OPR_GT;
+        case TK_GE:
+            return OPR_GE;
+        case TK_AND:
+            return OPR_AND;
+        case TK_OR:
+            return OPR_OR;
+        default:
+            return OPR_NOBINOPR;
     }
 }
 
