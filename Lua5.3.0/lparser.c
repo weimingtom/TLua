@@ -1223,7 +1223,7 @@ static int cond (LexState *ls) {
     return v.f;
 }
 
-
+/*gotostat接受一个已经为之生成好了的OP_JMP指令的位置*/
 static void gotostat (LexState *ls, int pc) {
     int line = ls->linenumber;
     TString *label;
@@ -1234,9 +1234,6 @@ static void gotostat (LexState *ls, int pc) {
         luaX_next(ls);  /* skip break */
         label = luaS_new(ls->L, "break");
     }
-    const char * ttc = getstr(label);
-    printf("gotostat label-->%s \n",ttc);
-    
     g = newlabelentry(ls, &ls->dyd->gt, label, line, pc);
     findlabel(ls, g);  /* close it if label already defined */
 }

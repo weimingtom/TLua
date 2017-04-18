@@ -265,7 +265,8 @@ static int read_numeral (LexState *ls, SemInfo *seminfo) {
             save_and_next(ls);
         else if (ls->current == '.')
             save_and_next(ls);
-        else break;
+        else
+            break;
     }
     save(ls, '\0');
     buffreplace(ls, '.', ls->decpoint);  /* follow locale for decimal point */

@@ -213,7 +213,8 @@ void luaK_patchtohere (FuncState *fs, int list) {
 
 
 void luaK_concat (FuncState *fs, int *l1, int l2) {
-    if (l2 == NO_JUMP) return;
+    if (l2 == NO_JUMP)
+        return;
     else if (*l1 == NO_JUMP)
         *l1 = l2;
     else {
@@ -225,7 +226,7 @@ void luaK_concat (FuncState *fs, int *l1, int l2) {
     }
 }
 
-
+/*生成下一条指令*/
 static int luaK_code (FuncState *fs, Instruction i) {
     Proto *f = fs->f;
     dischargejpc(fs);  /* 'pc' will change */
@@ -430,7 +431,8 @@ void luaK_dischargevars (FuncState *fs, expdesc *e) {
             luaK_setoneret(fs, e);
             break;
         }
-        default: break;  /* there is one value available (somewhere) */
+        default:
+            break;  /* there is one value available (somewhere) */
     }
 }
 
