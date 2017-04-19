@@ -1,3 +1,2 @@
-
-local b = 1 < 2
-
+local b = 3 < 2
+print(b)
