@@ -9,11 +9,24 @@
 #include "hello.h"
 
 void
-test_compiler(lua_State *L,const char *root) {
+test_coroutine(lua_State *L,const char *root)
+{
     char path [128];
     memset(path, '\0', sizeof(path));
     strcat(path, root);
-    strcat(path, "t_codek.lua");
+    strcat(path, "t_coroutine_2.lua");
+    printf("fname => %s \n",path);
+    load(L, path);
+
+}
+
+void
+test_compiler(lua_State *L,const char *root)
+{
+    char path [128];
+    memset(path, '\0', sizeof(path));
+    strcat(path, root);
+    strcat(path, "t_codek.lua");//t_codek.lua
     printf("fname => %s \n",path);
     load(L, path);
 

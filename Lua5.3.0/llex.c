@@ -482,7 +482,7 @@ static int llex (LexState *ls, SemInfo *seminfo) {
 //                else {
 //                    ls->current =  luaZ_fill(ls->z);
 //                }
-                printf("spaces  \n");
+                debug("spaces  \n");
                 break;
             }
             case '-': {  /* '-' or '--' (comment) */
@@ -632,10 +632,10 @@ void luaX_next (LexState *ls) {
 
 
 int luaX_lookahead (LexState *ls) {
-    printf("luaX_lookahead start %d %d %d %d \n",ls->lookahead.token,ls->current,ls->linenumber,ls->t.token);
+    debug("luaX_lookahead start %d %d %d %d \n",ls->lookahead.token,ls->current,ls->linenumber,ls->t.token);
     lua_assert(ls->lookahead.token == TK_EOS);
     ls->lookahead.token = llex(ls, &ls->lookahead.seminfo);
-    printf("luaX_lookahead end %d %d %d %d \n",ls->lookahead.token,ls->current,ls->linenumber,ls->t.token);
+    debug("luaX_lookahead end %d %d %d %d \n",ls->lookahead.token,ls->current,ls->linenumber,ls->t.token);
 
     return ls->lookahead.token;
 }

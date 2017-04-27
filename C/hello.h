@@ -12,6 +12,8 @@
 #include "util.h"
 #include <stdio.h>
 
+void test_coroutine(lua_State *L,const char *root);
+
 void test_compiler(lua_State *L,const char *root);
 
 void test_hello(lua_State *L,const char *root);

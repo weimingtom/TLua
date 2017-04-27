@@ -417,10 +417,12 @@ void luaD_call (lua_State *L, StkId func, int nResults, int allowyield) {
         else if (L->nCcalls >= (LUAI_MAXCCALLS + (LUAI_MAXCCALLS>>3)))
             luaD_throw(L, LUA_ERRERR);  /* error while handing stack error */
     }
-    if (!allowyield) L->nny++;
+    if (!allowyield)
+        L->nny++;
     if (!luaD_precall(L, func, nResults))  /* is a Lua function? */
         luaV_execute(L);  /* call it */
-    if (!allowyield) L->nny--;
+    if (!allowyield)
+        L->nny--;
     L->nCcalls--;
 }
 
