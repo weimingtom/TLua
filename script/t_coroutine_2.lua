@@ -18,7 +18,7 @@ print(co)
 --print("3==>"..coroutine.status(co))
 
 for i = 1,10 do
-    coroutine.resume(c1)
+    coroutine.resume(co)
     print(i.."==>"..coroutine.status(co))
 
 end
