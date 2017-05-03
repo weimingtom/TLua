@@ -110,7 +110,8 @@ static int luaB_yield (lua_State *L) {
 
 static int luaB_costatus (lua_State *L) {
     lua_State *co = getco(L);
-    if (L == co) lua_pushliteral(L, "running");
+    if (L == co)
+        lua_pushliteral(L, "running");
     else {
         switch (lua_status(co)) {
             case LUA_YIELD:

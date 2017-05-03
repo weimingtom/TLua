@@ -499,7 +499,8 @@ static CallInfo *findpcall (lua_State *L) {
 static int recover (lua_State *L, int status) {
     StkId oldtop;
     CallInfo *ci = findpcall(L);
-    if (ci == NULL) return 0;  /* no recovery point */
+    if (ci == NULL)
+        return 0;  /* no recovery point */
     /* "finish" luaD_pcall */
     oldtop = restorestack(L, ci->extra);
     luaF_close(L, oldtop);

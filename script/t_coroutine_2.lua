@@ -7,18 +7,18 @@ end)
 
 print(co)
 
-print("1==>"..coroutine.status(co))
+--print("1==>"..coroutine.status(co))
 
-coroutine.resume(co)
+--coroutine.resume(co)
 
-print("2==>"..coroutine.status(co))
+--print("2==>"..coroutine.status(co))
 
-coroutine.resume(co)
+--coroutine.resume(co)
 
-print("3==>"..coroutine.status(co))
+--print("3==>"..coroutine.status(co))
 
 for i = 1,10 do
-    coroutine.resume(co)
+    coroutine.resume(c1)
     print(i.."==>"..coroutine.status(co))
 
 end

@@ -1028,9 +1028,11 @@ newframe:  /* reentry point when frame changes (call/return) */
             vmcase(OP_CALL) {
                 int b = GETARG_B(i);
                 int nresults = GETARG_C(i) - 1;
-                if (b != 0) L->top = ra+b;  /* else previous instruction set top */
+                if (b != 0)
+                    L->top = ra+b;  /* else previous instruction set top */
                 if (luaD_precall(L, ra, nresults)) {  /* C function? */
-                    if (nresults >= 0) L->top = ci->top;  /* adjust results */
+                    if (nresults >= 0)
+                        L->top = ci->top;  /* adjust results */
                     base = ci->u.l.base;
                 }
                 else {  /* Lua function */
@@ -1057,7 +1059,8 @@ newframe:  /* reentry point when frame changes (call/return) */
                     StkId lim = nci->u.l.base + getproto(nfunc)->numparams;
                     int aux;
                     /* close all upvalues from previous call */
-                    if (cl->p->sizep > 0) luaF_close(L, oci->u.l.base);
+                    if (cl->p->sizep > 0)
+                        luaF_close(L, oci->u.l.base);
                     /* move new frame into old one */
                     for (aux = 0; nfunc + aux < lim; aux++)
                         setobjs2s(L, ofunc + aux, nfunc + aux);
