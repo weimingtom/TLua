@@ -10,7 +10,7 @@
 #define __LuaSrc__c_global_Var_lua__
 
 #include <stdio.h>
-#include "util.h"
+#include "l_util.h"
 
 void test_global(lua_State *L,const char *root);
 

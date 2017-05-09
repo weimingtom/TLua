@@ -9,9 +9,10 @@
 #ifndef __LuaSrc__lua_Call_c__
 #define __LuaSrc__lua_Call_c__
 
-#include "util.h"
+#include "l_util.h"
 
 
 void test_lua_Call_c(lua_State *L,const char *root);
 
+void test_l_socket(lua_State *L ,const char *path);
 #endif /* defined(__LuaSrc__lua_Call_c__) */

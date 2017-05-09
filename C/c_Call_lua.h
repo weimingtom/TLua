@@ -9,7 +9,7 @@
 #ifndef __LuaSrc__c_Call_lua__
 #define __LuaSrc__c_Call_lua__
 
-#include "util.h"
+#include "l_util.h"
 
 void test_c_call_lua(lua_State *L,const char *root);
 

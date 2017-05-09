@@ -12,7 +12,7 @@
 #include <unistd.h>
 #include "lobject.h"
 
-#include "util.h"
+#include "l_util.h"
 #include "hello.h"
 //#include "capi_example.h"
 //#include "test_extend_lua_by_c.h"
@@ -79,13 +79,14 @@ main(int argc, const char * argv[])
 
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);
-    test_coroutine(L, root);
+//    test_coroutine(L, root);
 //    test_compiler(L, root);
 //    test_hello(L,root);
     
 //    test_global(L,root);
 //    test_c_call_lua(L,root);
 //    test_lua_Call_c(L,root);
+    test_l_socket(L,root);
 //
 //    test_c_read_table_lua(L,root);
 //    test_c_write_table_lua(L,root);

@@ -51,7 +51,8 @@
 		799C55A71E8963D000E9D08E /* lvm.c in Sources */ = {isa = PBXBuildFile; fileRef = 799C554F1E8963D000E9D08E /* lvm.c */; };
 		799C55A81E8963D000E9D08E /* lzio.c in Sources */ = {isa = PBXBuildFile; fileRef = 799C55511E8963D000E9D08E /* lzio.c */; };
 		799C55A91E8963D000E9D08E /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 799C55531E8963D000E9D08E /* Makefile */; };
-		79C89D4E1E5C00A900C98513 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 79C89D3E1E5C00A900C98513 /* util.c */; };
+		79C19F161EC174FE00250255 /* l_socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 79C19F151EC174FE00250255 /* l_socket.c */; };
+		79C89D4E1E5C00A900C98513 /* l_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 79C89D3E1E5C00A900C98513 /* l_util.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -246,8 +247,9 @@
 		799C55831E8963D000E9D08E /* tOP_SUB.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_SUB.lua; sourceTree = "<group>"; };
 		799C55841E8963D000E9D08E /* tOP_UNM.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_UNM.lua; sourceTree = "<group>"; };
 		799C55851E8963D000E9D08E /* tOP_VALUE.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tOP_VALUE.lua; sourceTree = "<group>"; };
-		79C89D3E1E5C00A900C98513 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
-		79C89D3F1E5C00A900C98513 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		79C19F151EC174FE00250255 /* l_socket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = l_socket.c; sourceTree = "<group>"; };
+		79C89D3E1E5C00A900C98513 /* l_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = l_util.c; sourceTree = "<group>"; };
+		79C89D3F1E5C00A900C98513 /* l_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = l_util.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,6 +470,7 @@
 		79C89D241E5C00A900C98513 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				79C19F151EC174FE00250255 /* l_socket.c */,
 				7928C0F21E690FE60058F1DE /* c_userdate_lua.h */,
 				7928C0F31E690FE60058F1DE /* c_userdate_lua.c */,
 				7928C0EF1E690F540058F1DE /* c_write_table_lua.h */,
@@ -480,8 +483,8 @@
 				7928C0E11E6904350058F1DE /* c_Call_lua.c */,
 				7913B1F81E67F5860031123B /* c_global_Var_lua.h */,
 				7913B1F91E67F5860031123B /* c_global_Var_lua.c */,
-				79C89D3E1E5C00A900C98513 /* util.c */,
-				79C89D3F1E5C00A900C98513 /* util.h */,
+				79C89D3E1E5C00A900C98513 /* l_util.c */,
+				79C89D3F1E5C00A900C98513 /* l_util.h */,
 				7928C0E91E69090F0058F1DE /* hello.c */,
 				7928C0EA1E69090F0058F1DE /* hello.h */,
 			);
@@ -588,7 +591,8 @@
 				799C559D1E8963D000E9D08E /* lstate.c in Sources */,
 				7928C0E51E6905FE0058F1DE /* lua_Call_c.c in Sources */,
 				799C558E1E8963D000E9D08E /* ldebug.c in Sources */,
-				79C89D4E1E5C00A900C98513 /* util.c in Sources */,
+				79C89D4E1E5C00A900C98513 /* l_util.c in Sources */,
+				79C19F161EC174FE00250255 /* l_socket.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +683,7 @@
 		7980469B1A4C075D007DD361 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;

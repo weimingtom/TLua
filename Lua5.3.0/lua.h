@@ -15,18 +15,21 @@
 
 #include "luaconf.h"
 
-#define DEBUG 1
+//#define DEBUG 1
 
 #ifdef DEBUG
-#define debug(format,...) fprintf(stderr,"File: "__FILE__", Line: %05d: "format"\n", __LINE__, ##__VA_ARGS__)
-#else
-#define debug(format,...)
-#endif
-
-
 #define printls(ls,n) printf("%s ===> %d %d %d %d\n",n,ls->lookahead.token,ls->current,ls->linenumber,ls->t.token);
 
 #define printts(ts,n)   printf("%s-->%s \n",n,getstr(ts));
+
+#define debug(format,...) fprintf(stderr,"File: "__FILE__", Line: %05d: "format"\n", __LINE__, ##__VA_ARGS__)
+#else
+#define debug(format,...)
+#define  printls(ls,n)
+#define printts(ts,n)
+#endif
+
+
 
 
 #define LUA_VERSION_MAJOR	"5"

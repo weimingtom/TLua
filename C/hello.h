@@ -9,7 +9,7 @@
 #ifndef hello_h
 #define hello_h
 
-#include "util.h"
+#include "l_util.h"
 #include <stdio.h>
 
 void test_coroutine(lua_State *L,const char *root);

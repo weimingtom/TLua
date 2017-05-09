@@ -10,7 +10,7 @@
 #define __LuaSrc__c_userdate_lua__
 
 #include <stdio.h>
-#include "util.h"
+#include "l_util.h"
 
 void test_c_userdate_lua();
 

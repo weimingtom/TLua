@@ -81,3 +81,17 @@ test_lua_Call_c(lua_State *L,const char *root)
     load(L, path);
 }
 
+extern int luaopen_lsocket(lua_State *L);
+
+void
+test_l_socket(lua_State *L ,const char *root)
+{
+    luaL_requiref(L, "lsocket", luaopen_lsocket, 0);
+
+    char path [128];
+    memset(path, '\0', sizeof(path));
+    strcat(path, root);
+    strcat(path, "httpclient.lua");
+    load(L, path);
+}
+

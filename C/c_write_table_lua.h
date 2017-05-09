@@ -8,7 +8,7 @@
 
 #ifndef __LuaSrc__c_write_table_lua__
 #define __LuaSrc__c_write_table_lua__
-#include "util.h"
+#include "l_util.h"
 
 void test_c_write_table_lua(lua_State *L,const char *root);
 
